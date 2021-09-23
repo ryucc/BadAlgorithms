@@ -1,4 +1,4 @@
-# Binary Sorted Arrays
+# Segmented Array
 
 ## Preface
 
