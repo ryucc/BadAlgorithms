@@ -14,7 +14,7 @@ I'm proposing a range-query data structure with the following properties, in com
 |Balanced Tree  |O(log n)           |O(log n) + output_size            |O(log n)     |O(log n)     |
 |Skip List      |Avg. O(log n)      |Avg. O(log n) + output_size       |Avg. O(log n)|Avg. O(log n)|
 
-Although big-O analysis is worst, this data structure is only maintaining a set of sorted arrays. Making it easy to store on disk. Also on range query, the DS only looks through a sorted list. Traversing the output data may make it perform better than a tree.
+Although big-O analysis is worst, this data structure is **easy to store on disk, and can scale past memory limit**. It also only has a set of sorted arrays, so less branching and pointer dereferencing during traversal. 
 
 ## Main body
 
