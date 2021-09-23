@@ -2,7 +2,7 @@
 
 ## Preface
 
-Thought of this algorithm during an interview. Obviously too complicated to implement. Also doesn't work as good as I hoped.
+Thought of this algorithm during an interview. Obviously too complicated to implement. Also after deeper analysis, it doesn't work as good as I hoped.
 
 ## TL; DR
 
@@ -34,22 +34,36 @@ Step 3 needs amortized analysis: Every 2^n th insert needs to perform a merge to
 
 Total is O(log n).
 
+### Query(x)
+1. Binary search each array.
+2. Return true if we find it in any array.
+
+The upper bound is obviously O((log n)^2) time, since each binary search takes O(log n) time, with a total of O(log n) arrays.
+
+The lower bound is less trivial. But here is the math:
+
+total = log 1 + log 2 + log 4 + ... + log(n/2)
+
+\>= log(sqrt(n)) + ... + log(n/2)
+
+\>= (0.5 * log(n)) * (0.5 * log(n)) 
+
+= o(log(n)^2). 
+
+
+We could improve to O(log n), but sacrifice delete(x) support. This is done by also maintaining a set.
+
 ### Range Query(start, end)
 1. For each array,
 2. Binary search for *start*
 3. Keep outputting values until *end* is reached.
 4. Combine results from each array.
 
-Step 2, each binary search takes O(log n) time, with a total of O(log n) arrays. Total O((log n)^2) time.
+Step 2 is the same as query(x). O((log n)^2) time.
 
 Step 3, the total iterations is the output size.
 
 Total above is  O((log n)^2 + output_size) time.
-
-### Query(x)
-1. Binary search each array. O((log n)^2) time.
-
-This can be improved to O(log n) if we also maintain a set, but we won't support delete(x) later. Insert complexity is not impacted.
 
 ### Delete(x)
 1. Binary search for value. O((log n)^2) time.
