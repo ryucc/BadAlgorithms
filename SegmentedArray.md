@@ -1,12 +1,8 @@
 # Segmented Array
 
-## Preface
-
-Thought of this algorithm during an interview. Obviously too complicated to implement. Also after deeper analysis, it doesn't work as good as I hoped.
-
 ## TL; DR
 
-I'm proposing a range-query data structure with the following properties, in comparison,
+I'm proposing a range-query data structure named "Segmented Array" it supports the following operations and time performance. In comparison with existing data structures trees and skip list,
 
 |               |Insert             | Range Query                      |  Query      | Delete      |
 |---------------|-------------------|----------------------------------|-------------|-------------|
